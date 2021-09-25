@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using WebApplication7.Helper;
@@ -24,11 +24,6 @@ namespace WebApplication7.Controllers
             ViewBag.owner = "-";
             ViewBag.duedate = DateTime.Now.AddDays(0).ToString("dd-MM-yyyy");
 
-            ViewBag.Groups = GetGroups().Select(x => new SelectListItem()
-            {
-                Text = x.Text,
-                Value = x.Id
-            }).ToList();
 
 
             Project list = new Project();
@@ -62,19 +57,6 @@ namespace WebApplication7.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-
-        private List<Project> GetGroups()
-        {
-            return new List<Project>()
-            {
-                new Project() { Id = "All", Text =  "All"},
-                new Project() { Id = "1", Text =  "A"},
-                new Project() { Id = "2", Text =  "B"},
-                new Project() { Id = "3", Text =  "C"}
-
-            };
         }
 
 

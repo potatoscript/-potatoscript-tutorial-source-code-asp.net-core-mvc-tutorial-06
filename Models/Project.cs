@@ -9,9 +9,6 @@ namespace WebApplication7.Models
     {
         public List<Project> project = new List<Project>();
 
-        public string Id { get; set; }
-        public string Text { get; set; }
-
         public int ProjectId { get; set; }
 
         public string title { get; set; }
